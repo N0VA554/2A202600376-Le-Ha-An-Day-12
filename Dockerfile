@@ -29,8 +29,9 @@ COPY --from=builder /root/.local /home/agent/.local
 # Copy application
 COPY 06-lab-complete/app/ ./app/
 COPY utils/ ./utils/
+COPY 06-lab-complete/start.sh ./start.sh
 
-RUN chown -R agent:agent /app
+RUN chmod +x ./start.sh
 
 USER agent
 
